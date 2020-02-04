@@ -1,15 +1,15 @@
 <template>
     <div>
       <strong> Computed: {{computedInfo}} </strong> <br/>
-      <button @click="showAlert()"> Click Me! </button> <br/>
-      <button @click="goToHome()"> Go to Home </button>
     </div>
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-class-decorator';
 
+// TODO : huge page showing infos about a Deputato
+
 @Component({})
-export default class AboutPage extends Vue {
+export default class DeputatiAboutPage extends Vue {
     mounted() : void {
 
     }
@@ -18,15 +18,6 @@ export default class AboutPage extends Vue {
         return "Computed" + " " + "about";
     }
 
-    showAlert() : void {
-        alert("Well done [in about]");
-    }
-
-    goToHome() : void {
-        this.$router.push({
-            name: "home"
-        });
-    }
 }
 </script>
 <style lang="scss" scoped>

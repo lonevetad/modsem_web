@@ -1,7 +1,7 @@
 import HomePage from "./HomePage.vue";
-import AboutPage from "./AboutPage.vue";
+import SearchPage from "./SearchPage.vue";
 
 export { 
     HomePage,
-    AboutPage
+    SearchPage
 };

@@ -1,8 +1,10 @@
+import ModSemAPI from "@/api";
+
+
 export default class RootState {
-    // put base state properties here.
-    public exampleProperty : string;
+    public API: ModSemAPI;
 
     constructor() {
-        this.exampleProperty = "example";
+        this.API = new ModSemAPI();
     }
 }
