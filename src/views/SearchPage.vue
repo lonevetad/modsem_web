@@ -13,11 +13,14 @@
 			<ProcDetail :queryResultsStore="queryResultsStore" class="procDetail"></ProcDetail>
 		</div>
 		<button @click="testtt()">test</button>
+		<button @click="allIndividuals()">All Individuals</button>
 	</div>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from "vue-class-decorator";
+import { State } from "vuex-class";
+import ModSemAPI from "@/api";
 import { queryResultsStore } from "@/vuex"
 import { ProcedureSearchForm } from "@/components";
 import { ProcMepListResult } from "@/components";
@@ -37,6 +40,7 @@ import { Client } from 'virtuoso-sparql-client';
 	}
 })
 export default class SearchPage extends Vue {
+	@State("API") API!: ModSemAPI;
 	queryResultsStore = queryResultsStore; // to pass and retrive queries
 
 	get computedInfo(): string {
@@ -193,6 +197,18 @@ export default class SearchPage extends Vue {
 				console.log("\n\n");
 			});
 		})
+	}
+
+	allIndividuals(): void {
+		this.API.allIndividualsInOntology().then(response => {
+			console.log("\n\n\n ALL INDIVIDUALS\n\n__________")
+			console.log(response);
+			console.log(response.results.bindings);
+			console.log("#################################")
+		}).catch(err => {
+			console.log("Error on loadProcedures");
+			console.log(err);
+		});
 	}
 }
 </script>

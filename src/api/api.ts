@@ -56,6 +56,10 @@ class ModSemAPI {
         return this.procedure;
     }
 
+    public allIndividualsInOntology(): Promise<any> {
+        const query = "select ?p where {?p rdf:type owl:NamedIndividual}";
+        return this.adapter.callAPI(query);
+    }
 
     //KEPT FOR HISTORY
 
